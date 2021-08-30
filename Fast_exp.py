@@ -1,4 +1,3 @@
-from math import pow
 from timeit import default_timer as timer
 
 def binaryMultiplicationCount(exponent):
@@ -18,7 +17,7 @@ def binaryExponentiation(x, exponent):
             if exp == 0:
                 ans = x
             else:
-                for i in range(mul):
+                for _ in range(mul):
                     hold = hold ** 2
                     count += 1
                 ans = ans * hold
@@ -44,13 +43,11 @@ def exponentiation():
     print(ans)
     print()
     print("This was found using " + str(count) + " calculations")
-    print("And " + str(t) + " miliseconds")
-    print()
-    print("Press enter for result using standard method: ")
-    input()
+    print("And " + str(t) + " miliseconds\n")
+    input("Press enter for result using standard method: ")
     n = 1
     t1 = timer()
-    for i in range(1,exponent): 
+    for _ in range(0,exponent): 
         n = x * n 
     t2 = timer()
     t = (t2 - t1) * 10**3
@@ -59,4 +56,5 @@ def exponentiation():
     print("This was found using " + str(exponent - 1) + " calculations")
     print("And " + str(t) + " miliseconds")
 
-exponentiation()
+if __name__ == "__main__":
+    exponentiation()
